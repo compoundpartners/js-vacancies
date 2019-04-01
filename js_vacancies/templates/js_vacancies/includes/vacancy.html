@@ -1,0 +1,13 @@
+{% load i18n apphooks_config_tags cms_tags sekizai_tags staticfiles thumbnail %}
+
+<article class="vacancy">
+
+  <header>
+
+    <h1>{% render_model vacancy "title" %}</h1>
+
+  </header>
+
+    {% render_placeholder vacancy.content language placeholder_language %}
+
+</article>

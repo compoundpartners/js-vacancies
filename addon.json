@@ -1,0 +1,6 @@
+{
+    "package-name": "js-vacancies",
+    "installed-apps": [
+        "js_vacancies"
+    ]
+}

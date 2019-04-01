@@ -1,0 +1,12 @@
+{% load i18n apphooks_config_tags cms_tags sekizai_tags staticfiles thumbnail %}
+
+  <a href="{{ vacancy.get_absolute_url }}">
+
+    <h4>{{ vacancy.title }}</h4>
+
+    {% if vacancy.lead_in %}
+      <p>{{ vacancy.lead_in|striptags|safe|truncatechars:165 }}</p>
+    {% endif %}
+
+  </a>
+

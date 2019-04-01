@@ -1,0 +1,10 @@
+{% extends "js_vacancies/base.html" %}
+{% load i18n cms_tags apphooks_config_tags %}
+
+{% block title %}
+    {{ vacancy.title }} - {{ block.super }}
+{% endblock %}
+
+{% block vacancies_content %}
+    {% include "js_vacancies/includes/vacancy.html" %}
+{% endblock %}

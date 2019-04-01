@@ -1,0 +1,32 @@
+{% extends "js_vacancies/base.html" %}
+{% load i18n cms_tags staticfiles %}
+
+{% block title %}
+    Vacancies
+{% endblock title %}
+
+{% block vacancies_content %}
+
+  <h1 class="col-md-12">
+    Vacancies
+  </h1>
+
+  <div class="col-md-12 two-by-two">
+    <ul class="row">
+
+      {% for vacancy in vacancy_list %}
+        <li class="col-sm-12 col-md-6">
+          {% include "js_vacancies/includes/vacancy-item.html" %}
+        </li>
+      {% empty %}
+          {% trans "No items available" %}
+      {% endfor %}
+
+    </ul>
+  </div>
+
+  <nav class="col-md-12">
+    {% include "js_vacancies/includes/pagination.html" %}
+  </nav>
+
+{% endblock %}
