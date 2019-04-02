@@ -22,11 +22,12 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('aldryn_people', '0030_persontranslation_suffix'),
+        ('aldryn_people', '0033_move_locations'),
         ('cms', '0020_old_tree_cleanup'),
         migrations.swappable_dependency(settings.FILER_IMAGE_MODEL),
         ('aldryn_categories', '0007_categorytranslation_landing_page'),
         ('js_services', '0005_auto_20190218_1237'),
+        ('js_locations', '0001_initial'),
     ]
 
     operations = [
@@ -82,7 +83,7 @@ class Migration(migrations.Migration):
                 ('categories', aldryn_categories.fields.CategoryManyToManyField(blank=True, to='aldryn_categories.Category', verbose_name='categories')),
                 ('content', cms.models.fields.PlaceholderField(editable=False, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='vacancy_content', slotname='Vacancy content', to='cms.Placeholder')),
                 ('featured_image', filer.fields.image.FilerImageField(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to=settings.FILER_IMAGE_MODEL, verbose_name='featured image')),
-                ('location', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='aldryn_people.Location', verbose_name='location')),
+                ('location', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='js_locations.Location', verbose_name='location')),
                 ('related', sortedm2m.fields.SortedManyToManyField(blank=True, help_text=None, related_name='related_rel_+', to='js_vacancies.Vacancy', verbose_name='related vacancies')),
                 ('services', sortedm2m.fields.SortedManyToManyField(blank=True, help_text=None, to='js_services.Service', verbose_name='services')),
             ],

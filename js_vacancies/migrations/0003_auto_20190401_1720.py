@@ -9,14 +9,13 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('js_locations', '0001_initial'),
         ('js_vacancies', '0002_remove_vacancy_related'),
     ]
 
-    operations = [
-        migrations.AlterField(
-            model_name='vacancy',
-            name='location',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='js_locations.Location', verbose_name='location'),
-        ),
-    ]
+    #operations = [
+        #migrations.AlterField(
+            #model_name='vacancy',
+            #name='location',
+            #field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='js_locations.Location', verbose_name='location'),
+        #),
+    #]
