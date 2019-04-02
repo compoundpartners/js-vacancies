@@ -110,6 +110,7 @@ class VacancyAdmin(
         'location',
         'categories',
         'services',
+        'companies',
     ]
     actions = (
         make_featured, make_not_featured,
@@ -120,6 +121,7 @@ class VacancyAdmin(
     advanced_settings_fields = (
         'categories',
         'services',
+        'companies',
         'app_config',
     )
 
@@ -167,6 +169,8 @@ class VacancyAdmin(
     def formfield_for_manytomany(self, db_field, request=None, **kwargs):
         if db_field.name == 'services':
             kwargs['widget'] = SortedFilteredSelectMultiple(attrs={'verbose_name': 'service', 'verbose_name_plural': 'services'})
+        if db_field.name == 'companies':
+            kwargs['widget'] = SortedFilteredSelectMultiple(attrs={'verbose_name': 'company', 'verbose_name_plural': 'companies'})
         return super(VacancyAdmin, self).formfield_for_manytomany(db_field, request, **kwargs)
 
 

@@ -93,6 +93,8 @@ class Vacancy(TranslatedAutoSlugifyMixin,
     location = models.ForeignKey(Location,
         verbose_name=_('location'),
         blank=True, null=True)
+    companies = SortedManyToManyField('js_companies.Company',
+        verbose_name=_('companies'), blank=True)
     vacancy_type = models.CharField(_('type'),
         max_length=255, default='', blank=True)
     closing_date = models.DateField(_('closing date'),
