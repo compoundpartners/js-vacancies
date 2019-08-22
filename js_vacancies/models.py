@@ -238,7 +238,7 @@ def update_search_data(sender, instance, **kwargs):
         placeholder = (getattr(instance, '_placeholder_cache', None) or
                        instance.placeholder)
         if hasattr(placeholder, '_attached_model_cache'):
-            if placeholder._attached_model_cache == Vacancy:
+            if placeholder._attached_model_cache == Vacancy and placeholder.slot == 'content':
                 vacancy = placeholder._attached_model_cache.objects.language(
                     instance.language).get(content=placeholder.pk)
                 vacancy.search_data = vacancy.get_search_data(instance.language)
