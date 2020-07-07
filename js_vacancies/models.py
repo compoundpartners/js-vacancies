@@ -11,7 +11,11 @@ from cms.models.pluginmodel import CMSPlugin
 from cms.utils.i18n import get_current_language, get_redirect_on_fallback
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
-from django.core.urlresolvers import reverse
+try:
+    from django.core.urlresolvers import reverse
+except ImportError:
+    # Django 2.0
+    from django.urls import reverse
 from django.db import connection, models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
@@ -91,6 +95,7 @@ class Vacancy(TranslatedAutoSlugifyMixin,
         verbose_name=_('Section'),
         help_text='',)
     location = models.ForeignKey(Location,
+        on_delete=models.SET_NULL,
         verbose_name=_('location'),
         blank=True, null=True)
     companies = SortedManyToManyField('js_companies.Company',
